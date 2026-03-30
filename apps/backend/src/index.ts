@@ -1,6 +1,12 @@
-import "dotenv/config"
+import dotenv from "dotenv"
 import express from "express"
-import { prisma } from "@repo/db"
+import { fileURLToPath } from "node:url"
+
+dotenv.config({
+    path: fileURLToPath(new URL("../../../packages/db/.env", import.meta.url)),
+})
+
+const { prisma } = await import("@repo/db")
 
 const app = express()
 app.use(express.json())
@@ -32,6 +38,6 @@ app.post("/user", (req, res) => {
     });
 })
 
-app.listen(3000, () => {
+app.listen(4000, () => {
     console.log("backend running on port 3000")
 })

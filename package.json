@@ -9,7 +9,9 @@
     "check-types": "turbo run check-types",
     "db:migrate": "turbo run migrate --filter=@repo/db",
     "db:generate": "turbo run generate --filter=@repo/db",
-    "run:backend": "turbo run dev --filter=backend"
+    "start:backend": "turbo run dev --filter=backend",
+    "start:ws": "turbo run dev --filter=ws-backend",
+    "start:web": "turbo run start --filter=web"
   },
   "devDependencies": {
     "prettier": "^3.7.4",

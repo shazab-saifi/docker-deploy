@@ -9,9 +9,9 @@
     "check-types": "turbo run check-types",
     "db:migrate": "turbo run migrate --filter=@repo/db",
     "db:generate": "turbo run generate --filter=@repo/db",
-    "start:backend": "turbo run db:migrate turbo run dev --filter=backend",
-    "start:ws": "turbo run db:migrate turbo run dev --filter=ws-backend",
-    "start:web": "turbo run db:migrate && turbo run start --filter=web"
+    "start:backend": "bun run --cwd packages/db migrate && bun run --cwd apps/backend dev",
+    "start:ws": "bun run --cwd packages/db migrate && bun run --cwd apps/ws-backend dev",
+    "start:web": "bun run --cwd packages/db migrate && bun run --cwd apps/web dev"
   },
   "devDependencies": {
     "prettier": "^3.7.4",

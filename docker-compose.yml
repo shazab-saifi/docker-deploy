@@ -9,12 +9,12 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
     depends_on:
       - postgres
-  frontend:
+  web:
     build:
       context: .
-      dockerfile: docker/Dockerfile.frontend
+      dockerfile: docker/Dockerfile.web
       args:
-        - DB_URL=postgresql://postgres:postgres@postgres:5432/postgres
+        - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/postgres
     ports:
       - "3000:3000"
     environment:

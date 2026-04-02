@@ -10,9 +10,10 @@ COPY ./turbo.json ./turbo.json
 COPY ./apps/web ./apps/web 
 COPY ./packages ./packages 
 
+ENV DATABASE_URL=$DATABASE_URL
 RUN bun install
 RUN bun run db:generate
-RUN DATABASE_URL=${DATABASE_URL} bun run build
+RUN bun run build
 
 EXPOSE 3000
  

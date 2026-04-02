@@ -1,12 +1,12 @@
-import dotenv from "dotenv"
+// import "dotenv/config"
 import express from "express"
-import { fileURLToPath } from "node:url"
+// import { fileURLToPath } from "node:url"
 
-dotenv.config({
-    path: fileURLToPath(new URL("../../../packages/db/.env", import.meta.url)),
-})
+// dotenv.config({
+//     path: fileURLToPath(new URL("../../../packages/db/.env", import.meta.url)),
+// })
 
-const { prisma } = await import("@repo/db")
+import { prisma } from "@repo/db"
 
 const app = express()
 app.use(express.json())

@@ -27,4 +27,4 @@ jobs:
               run: |
                 echo "${{ secrets.SSH_PRIVATE_KEY }}" &> /home/runner/ssh_key
                 chmod 700 /home/runner/ssh_key 
-                ssh -o StrictHostKeyChecking=no -i /home/runner/ssh_key ubuntu@98.82.118.24 -t "docker rm -f user_ws || true && docker run --name user_ws -e DATABASE_URL="${{ secrets.DATABASE_URL }}" -d -p 8001:8081 sab2/user-app-ws:${{ github.sha }}"
+                ssh -o StrictHostKeyChecking=no -i /home/runner/ssh_key ubuntu@98.82.118.24 -t "docker rm -f user_ws || true && docker run --name user_ws -e DATABASE_URL='"${{ secrets.DATABASE_URL }}"' -d -p 8001:8001 sab2/user-app-ws:${{ github.sha }}"
